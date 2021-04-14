@@ -1,0 +1,1 @@
+dotnet pack src/Microsoft.DotNet.Interactive.Jupyter.Tqdm/Microsoft.DotNet.Interactive.Jupyter.Tqdm.csproj -p:PackageVersion=0.0.17 -c Release -o Nuget   

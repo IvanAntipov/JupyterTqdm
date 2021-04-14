@@ -195,6 +195,7 @@ PublishScripts/
 # NuGet v3's project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
+/Nuget
 
 # Microsoft Azure Build Output
 csx/
@@ -348,3 +349,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+.idea/
