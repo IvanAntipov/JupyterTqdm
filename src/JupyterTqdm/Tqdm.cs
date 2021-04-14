@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.DotNet.Interactive.Formatting;
-using Microsoft.DotNet.Interactive.Jupyter.Tqdm.Internal;
+using JupyterTqdm.Internal;
+using Microsoft.DotNet.Interactive;
 using Microsoft.DotNet.Interactive.Formatting;
 
-namespace Microsoft.DotNet.Interactive.Jupyter.Tqdm
+namespace JupyterTqdm
 {
     public static class Tqdm
     {

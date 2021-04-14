@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.DotNet.Interactive.Jupyter.Tqdm.Internal
+namespace JupyterTqdm.Internal
 {
     public interface IProgress
     {
