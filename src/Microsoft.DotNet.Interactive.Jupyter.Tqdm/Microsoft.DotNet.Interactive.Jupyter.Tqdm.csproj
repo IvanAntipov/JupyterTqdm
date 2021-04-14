@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+	<Authors>IvanAntipov</Authors>
+	<Description>tqdm style wrapper for Goblinfactory.Konsole</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	<RepositoryUrl>https://github.com/IvanAntipov/Microsoft.DotNet.Interactive.Jupyter.Tqdm</RepositoryUrl>
+	<RepositoryType>git</RepositoryType> 
+	<PackageLicenseExpression>MIT</PackageLicenseExpression> 
   </PropertyGroup>
 
   <ItemGroup>
