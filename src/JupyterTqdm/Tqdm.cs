@@ -101,12 +101,14 @@ namespace JupyterTqdm
             private readonly string _title;
             private readonly int? _total;
             private readonly DisplayedValue _display;
+            private readonly DateTimeOffset _startedAt;
 
             public JupyterProgressBar(string title, int? total)
             {
                 _title = title;
                 _total = total;
-                var zeroProgress = CreateProgress(0);
+                _startedAt = DateTimeOffset.Now;
+                var zeroProgress = CreateProgress(0, TimeSpan.Zero);
 
                 _display = System.DisplayExtensions.Display(zeroProgress);
             }
@@ -116,7 +118,7 @@ namespace JupyterTqdm
                 Update(0);   
             }
 
-            private dynamic CreateProgress(long value)
+            private dynamic CreateProgress(long value, TimeSpan elapsed)
             {
                 // TODO Add title
                 
@@ -129,14 +131,32 @@ namespace JupyterTqdm
                 //
                 // .html
 
-                return
+                var bar =
                     _total.HasValue
                         ? PocketViewTags.progress[max: _total.Value][value: value](_title)
                         : PocketViewTags.progress(_title);
+
+                var speed = elapsed.TotalSeconds == 0?0:(value/elapsed.TotalSeconds) ;
+
+                var estimatedTotal =
+                    (_total.HasValue && value!=0)
+                        ? TimeSpan.FromMilliseconds(elapsed.TotalMilliseconds * _total.Value / value)
+                        : TimeSpan.Zero;
+                
+                var statusStr =
+                    _total.HasValue ? 
+                        $"{value} [{elapsed}, {speed:F2}it/s]" : 
+                        $"{value}/{_total.Value}, [{elapsed} < {estimatedTotal}, {speed:F2}it/s]";
+                return 
+                    PocketViewTags.div(
+                        PocketViewTags.label($"{_title}|"),
+                        bar,
+                        PocketViewTags.label($"|{statusStr}")
+                    );
             }
             public void Update(long current)
             {
-                _display.Update(CreateProgress(current));
+                _display.Update(CreateProgress(current, DateTimeOffset.Now - _startedAt));
             }
         }
     }

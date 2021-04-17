@@ -1,1 +1,1 @@
-dotnet pack src/JupyterTqdm/JupyterTqdm.csproj  -p:PackageID=JupyterTqdm -p:PackageVersion=0.1.0 -c Release -o Nuget   
+dotnet pack src/JupyterTqdm/JupyterTqdm.csproj  -p:PackageID=JupyterTqdm -p:PackageVersion=0.1.3 -c Release -o Nuget   
