@@ -1,6 +1,6 @@
-# Microsoft.DotNet.Interactive.Jupyter.Tqdm
+# JupyterTqdm
 
-tqdm for Microsoft.DotNet.Interactive.Jupyter
+tqdm port for Microsoft.DotNet.Interactive.Jupyter
 
 
 ![img](./UsageExample.png)
